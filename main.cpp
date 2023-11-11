@@ -3,25 +3,22 @@
 using namespace std;
 int main(){
     
-    linkedlist* l = new linkedlist();
-    element * e ;
-    e = new  element(3);
-    l->insertFirst(e);
-    e = new element(2);
-    l ->insertFirst(e);
-    e= new element(1);
-    l->insertFirst(e);
-    l->checkList();
-    e = new element(4);
-    l->insertTail(e);
-    e = new element();
-    l->insertTail(e);
-    l->checkList();
-    l->insertFirst(-1);
-    l->checkList();
-    l->deleteFirst();
-    l->checkList();
+    int n = 5;
+    linkedlist* list = new linkedlist();
+    element *e[n+1];
+    for(int i = 0; i<= n ; i++)
+    {
+        e[i] = new element(i);
+        list->insertTail(e[i]);
+    }
+    list->checkList();
+    list->deleteFirst();
+    list->deleteTail();
+    list->deleteElement(e[1]);
+    list->checkList();
+
+
     delete e;
-    delete l;
+    delete list;
     return 0;
 }

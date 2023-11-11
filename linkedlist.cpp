@@ -44,6 +44,45 @@ void linkedlist::deleteFirst()
     } 
 }
 
+void linkedlist::deleteTail()
+{
+    if(this->head == nullptr) {cout<<"list null.";return;}
+    element*temp = this->head;
+    while(temp->getPointer() != this->tail)
+    {
+        temp = temp->getPointer();
+    }
+    this->tail = temp;
+    this->tail->setPointer(nullptr);
+    temp = temp->getPointer();
+    delete temp;
+}
+
+void linkedlist::deleteElement(element *val)
+{
+    if(this->head == nullptr) {cout<<"list Null.\n"; return;}
+    if(this->head == val) 
+    {
+        this->deleteFirst();
+        return;
+    }
+    if(this->tail == val)
+    {
+        this->deleteTail();
+        return;
+    }
+    element *p = this->head;
+    while(p->getPointer() != val)
+    {
+        p=p->getPointer();
+    }
+     // 1. 2 3  : sau while p se dung tai 1 , ta tien hanh tro 1 to 3 ; chuyen p sang 2 va xoa p.
+    p->setPointer(p->getPointer()->getPointer());
+    p=p->getPointer();
+    delete p;
+
+}
+
 void linkedlist::checkList()
 {
     if(tail == nullptr || head == nullptr) cout<<"\n Empty list. \n";

@@ -12,6 +12,8 @@
         void insertFirst(int val); // overloading function for integer paremeter .
         void insertTail(element* val);
         void deleteFirst();
+        void deleteTail();
+        void deleteElement(element* val);
         void checkList();
         ~linkedlist();
 

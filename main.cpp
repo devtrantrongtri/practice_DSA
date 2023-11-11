@@ -17,6 +17,10 @@ int main(){
     e = new element();
     l->insertTail(e);
     l->checkList();
+    l->insertFirst(-1);
+    l->checkList();
+    l->deleteFirst();
+    l->checkList();
     delete e;
     delete l;
     return 0;

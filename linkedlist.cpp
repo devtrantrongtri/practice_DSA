@@ -19,6 +19,12 @@ void linkedlist::insertFirst(element *val)
    }
 }
 
+void linkedlist::insertFirst(int val)
+{
+    this-> e = new element(val);
+    this->insertFirst(e);
+}
+
 void linkedlist::insertTail(element *val)
 {
     if(head == nullptr ) this->head = this->tail = val;
@@ -26,6 +32,16 @@ void linkedlist::insertTail(element *val)
         this->tail->setPointer(val);
         this->tail = val;
     }
+}
+
+void linkedlist::deleteFirst()
+{
+    if(this->head == nullptr) cout<<"Couldn't delete this first members.\n";
+    else{
+    element* p = this->head ;
+    this->head = this->head->getPointer();
+    delete p;
+    } 
 }
 
 void linkedlist::checkList()
@@ -46,5 +62,5 @@ void linkedlist::checkList()
 
 linkedlist::~linkedlist()
 {
-
+    // delete e;
 }
